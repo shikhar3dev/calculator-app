@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Calculator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode">
+  <div class="calculator">
+    <div class="header">
+      <button class="mode-toggle" onclick="toggleMode()">
+        <i class="fas fa-moon"></i>
+      </button>
+      <h2>Ultimate Calculator</h2>
+      <button class="sci-toggle" onclick="toggleScientific()">
+        <i class="fas fa-flask"></i>
+      </button>
+    </div>
+    
+    <div class="display-area">
+      <div class="history" id="history"></div>
+      <input type="text" id="display" readonly>
+    </div>
+    
+    <div class="memory-buttons">
+      <button class="mem-btn" onclick="memoryRecall()">MR</button>
+      <button class="mem-btn" onclick="memoryClear()">MC</button>
+      <button class="mem-btn" onclick="memoryAdd()">M+</button>
+      <button class="mem-btn" onclick="memorySubtract()">M-</button>
+    </div>
+    
+    <div class="buttons">
+      <!-- Scientific buttons (hidden by default) -->
+      <div class="scientific-buttons">
+        <button class="sci-btn" onclick="appendFunction('Math.sin(')">sin</button>
+        <button class="sci-btn" onclick="appendFunction('Math.cos(')">cos</button>
+        <button class="sci-btn" onclick="appendFunction('Math.tan(')">tan</button>
+        <button class="sci-btn" onclick="appendFunction('Math.log(')">log</button>
+        <button class="sci-btn" onclick="appendValue('Math.PI')">π</button>
+        <button class="sci-btn" onclick="appendValue('Math.E')">e</button>
+        <button class="sci-btn" onclick="appendValue('(')">(</button>
+        <button class="sci-btn" onclick="appendValue(')')">)</button>
+      </div>
+      
+      <!-- Standard buttons -->
+      <button class="fn-btn" onclick="clearDisplay()">AC</button>
+      <button class="fn-btn" onclick="backspace()"><i class="fas fa-backspace"></i></button>
+      <button class="fn-btn" onclick="appendValue('%')">%</button>
+      <button class="op-btn" onclick="appendValue('/')">/</button>
+      
+      <button onclick="appendValue('7')">7</button>
+      <button onclick="appendValue('8')">8</button>
+      <button onclick="appendValue('9')">9</button>
+      <button class="op-btn" onclick="appendValue('*')">×</button>
+      
+      <button onclick="appendValue('4')">4</button>
+      <button onclick="appendValue('5')">5</button>
+      <button onclick="appendValue('6')">6</button>
+      <button class="op-btn" onclick="appendValue('-')">−</button>
+      
+      <button onclick="appendValue('1')">1</button>
+      <button onclick="appendValue('2')">2</button>
+      <button onclick="appendValue('3')">3</button>
+      <button class="op-btn" onclick="appendValue('+')">+</button>
+      
+      <button class="zero-btn" onclick="appendValue('0')">0</button>
+      <button onclick="appendValue('.')">.</button>
+      <button class="eq-btn" onclick="calculate()">=</button>
+    </div>
+  </div>
+  
+  <div class="toast" id="toast"></div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
